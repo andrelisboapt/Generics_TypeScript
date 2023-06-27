@@ -71,3 +71,24 @@ objStorage.addItem({name: 'Manu'})
 //..
 objStorage.removeItem({name: 'Max'})
 console.log(objStorage.getItems()) */
+
+interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+}
+
+function createCourseGoal (
+    title: string, 
+    description: string, 
+    date: Date
+    ): CourseGoal{
+    let courseGoal: Partial<CourseGoal> = {}; //partial turn this object type with optional properties
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal as CourseGoal;
+}
+
+const names: Readonly<string[]> = ['Max', 'Anna'];
+//names.push('Manu'); we can't change this array since its a readonly string array
